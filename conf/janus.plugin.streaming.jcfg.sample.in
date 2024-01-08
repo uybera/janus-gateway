@@ -133,21 +133,22 @@ general: {
 # plugins/streams folder sends to. Whatever is sent to those ports will
 # be the source of a WebRTC broadcast users can subscribe to.
 #
-rtp-sample: {
-	type = "rtp"
-	id = 1
-	description = "Opus/VP8 live stream coming from external source"
-	metadata = "You can use this metadata section to put any info you want!"
-	audio = true
-	video = true
-	audioport = 5002
-	audiopt = 111
-	audiocodec = "opus"
-	videoport = 5004
-	videopt = 100
-	videocodec = "vp8"
-	secret = "adminpwd"
-}
+#rtp-sample: {
+	#type = "rtp"
+	#id = 1
+	#description = "Opus/VP8 live stream coming from external source"
+	#metadata = "You can use this metadata section to put any info you want!"
+	#audio = true
+	#video = true
+	#audioport = 5002
+	#audiopt = 111
+	#audiocodec = "opus"
+	#videoport = 5004
+	#videopt = 100
+	#videocodec = "vp8"
+	#secret = "adminpwd"
+#}
+
 
 #
 # This is a better example that uses the new settings to configure a live
@@ -166,39 +167,39 @@ rtp-sample: {
 # As such, you can use the same approach for creating regular mountpoints
 # as well (e.g., 1 audio and 1 video) in a much clearer, and cleaner, way.
 #
-multistream-test: {
-	type = "rtp"
-	id = 123
-	description = "Multistream test (1 audio, 2 video)"
-	metadata = "This is an example of a multistream mountpoint: you'll get an audio stream and two video feeds"
-	media = (
-		{
-			type = "audio"
-			mid = "a"
-			label = "Audio stream"
-			port = 5102
-			pt = 111
-			codec = "opus"
-		},
-		{
-			type = "video"
-			mid = "v1"
-			label = "Video stream #1"
-			port = 5104
-			pt = 100
-			codec = "vp8"
-		},
-		{
-			type = "video"
-			mid = "v2"
-			label = "Video stream #2"
-			port = 5106
-			pt = 100
-			codec = "vp8"
-		}
-	)
-	secret = "adminpwd"
-}
+#multistream-test: {
+	#type = "rtp"
+	#id = 123
+	#description = "Multistream test (1 audio, 2 video)"
+	#metadata = "This is an example of a multistream mountpoint: you'll get an audio stream and two video feeds"
+	#media = (
+		#{
+		#	type = "audio"
+		#	mid = "a"
+		#	label = "Audio stream"
+		#	port = 5102
+		#	pt = 111
+		#	codec = "opus"
+		#},
+		#{
+		#	type = "video"
+		#	mid = "v1"
+		#	label = "Video stream #1"
+		#	port = 5104
+		#	pt = 100
+		#	codec = "vp8"
+		#},
+		#{
+		#	type = "video"
+		#	mid = "v2"
+		#	label = "Video stream #2"
+		#	port = 5106
+		#	pt = 100
+		#	codec = "vp8"
+		#}
+	#)
+	#secret = "adminpwd"
+#}
 
 #
 # This is a sample of the file-based streaming support. Specifically,
@@ -207,15 +208,15 @@ multistream-test: {
 # this mountpoint will listen to the same broadcast as if it were live.
 # Notice that file-based streaming supports Opus files too, but no video.
 #
-file-live-sample: {
-	type = "live"
-	id = 2
-	description = "a-law file source (radio broadcast)"
-	filename = "@streamdir@/radio.alaw"
-	audio = true
-	video = false
-	secret = "adminpwd"
-}
+#file-live-sample: {
+	#type = "live"
+	#id = 2
+	#description = "a-law file source (radio broadcast)"
+	#filename = "@streamdir@/radio.alaw"
+	#audio = true
+	#video = false
+	#secret = "adminpwd"
+#}
 
 #
 # This is another sample of the file-based streaming support, but using
@@ -225,15 +226,15 @@ file-live-sample: {
 # of the stream, meaning that it will start from the beginning and then
 # loop when it's over. On-demand streaming supports Opus files as well.
 #
-file-ondemand-sample: {
-	type = "ondemand"
-	id = 3
-	description = "mu-law file source (music)"
-	filename = "@streamdir@/music.mulaw"
-	audio = true
-	video = false
-	secret = "adminpwd"
-}
+#file-ondemand-sample: {
+	#type = "ondemand"
+	#id = 3
+	#description = "mu-law file source (music)"
+	#filename = "@streamdir@/music.mulaw"
+	#audio = true
+	#video = false
+	#secret = "adminpwd"
+#}
 
 #
 # All browsers also support H.264, often through Cisco's OpenH264 plugin.
@@ -244,18 +245,18 @@ file-ondemand-sample: {
 # example of how to create a simple H.264 mountpoint: you can feed it via
 # an x264enc+rtph264pay pipeline in gstreamer, an ffmpeg script or other.
 #
-#h264-sample: {
-	#type = "rtp"
-	#id = 10
-	#description = "H.264 live stream coming from gstreamer"
-	#audio = false
-	#video = true
-	#videoport = 8004
-	#videopt = 126
-	#videocodec = "h264"
-	#videofmtp = "profile-level-id=42e01f;packetization-mode=1"
-	#secret = "adminpwd"
-#}
+h264-sample: {
+	type = "rtp"
+	id = 10
+	description = "H.264 live stream"
+	audio = false
+	video = true
+	videoport = 8004
+	videopt = 126
+	videocodec = "h264"
+	videofmtp = "profile-level-id=42e01f;packetization-mode=1"
+	secret = "adminpwd"
+}
 
 #
 # The Streaming plugin also supports the broadcasting of datachannel

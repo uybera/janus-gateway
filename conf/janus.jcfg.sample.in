@@ -227,7 +227,7 @@ media: {
 	#ipv6 = true
 	#ipv6_linklocal = true
 	#min_nack_queue = 500
-	#rtp_port_range = "20000-40000"
+	rtp_port_range = "20000-40000"
 	#dtls_mtu = 1200
 	#no_media_timer = 1
 	#slowlink_threshold = 4
@@ -405,7 +405,7 @@ nat: {
 # names to identify the plugins to disable. By default all available
 # plugins are enabled and loaded at startup.
 plugins: {
-	#disable = "libjanus_echotest.so,libjanus_recordplay.so"
+	disable = "libjanus_echotest.so,libjanus_audiobridge.so,libjanus_nosip.so,libjanus_recordplay.so,libjanus_sip.so,libjanus_videocall.so,libjanus_textroom.so,libjanus_videoroom.so"
 }
 
 # You can choose which of the available transports should be enabled or
